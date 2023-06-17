@@ -1,17 +1,31 @@
 def fibonacci_huge(n, m):
-    if n<=1:
+    assert n>=1 and n<=10**14, 'n is out out of range'
+    assert m>=2 and m<=10**3, 'm is out out of range'
+
+    fib_seq = [0, 1, 1]
+    idx = p = 2
+
+    is_repeated = (fib_seq[p] == 1 and (fib_seq[p-1] == 0))
+    is_end = (p == n)
+
+    if n == 1:
         return n
-    else:
-        one_step_behind = 1
-        two_step_behind = 0
+    
+    while (not is_repeated) and (not is_end):
+        fib_number = (fib_seq[p] + fib_seq[p-1]) % m
+        fib_seq.append(fib_number)
 
-        for i in range(1, n):
-            value = one_step_behind + two_step_behind
-            two_step_behind = one_step_behind % m
-            one_step_behind = value % m
-            value = value % m
+        p += 1
+        is_repeated = (fib_seq[p] == 1 and (fib_seq[p-1] == 0))
+        is_end = (p == n)
 
-    return value
+    if is_repeated:
+        idx = n % (p-1)
+    elif is_end:
+        idx = p
+    
+    return fib_seq[idx]
+
 
 if __name__ == '__main__':
     n, m = map(int, input().split())
