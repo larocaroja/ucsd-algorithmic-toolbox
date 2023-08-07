@@ -1,12 +1,11 @@
 def binary_search(K, q, l, r):
-    if r - l <= 1:
+    if r - l < 1:
         if K[l] == q:
             return l
         else:
             return -1
 
     mid = l + (r - l)//2
-    # print(l,r,mid)
     elem_mid = K[mid]
 
     if elem_mid == q:
