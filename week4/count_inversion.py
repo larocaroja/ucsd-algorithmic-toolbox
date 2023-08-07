@@ -39,4 +39,5 @@ def count_inversion(seq, l, r):
 if __name__ == "__main__":
     n = int(input())
     seq = list(map(int, input().split(' ')))
-    print(count_inversion(seq = seq, l = 0, r = n-1))
+    _, n_inversion = count_inversion(seq = seq, l = 0, r = n-1)
+    print(n_inversion)

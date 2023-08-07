@@ -40,4 +40,5 @@ def randomized_quick_sort(seq, l, r):
 if __name__ == "__main__":
     n = int(input())
     seq = list(map(int, input().split(' ')))
-    print(randomized_quick_sort(seq = seq, l = 0, r = n-1))
+    print(' '.join(randomized_quick_sort(seq = seq, l = 0, r = n-1)))
+    
