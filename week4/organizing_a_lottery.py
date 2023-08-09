@@ -1,6 +1,6 @@
 def organize_a_lottery(seq, l, r, p):
-    if l>=r:
-        if seq[l][0] <= p and p <= seq[l][1]:
+    if r-l<1:
+        if (seq[l][0] <= p) and (p <= seq[l][1]):
             return 1
         else:
             return 0
@@ -22,10 +22,10 @@ if __name__ == '__main__':
     n, m = map(int, input().split(' '))
     
     seq =[]
-    for _ in range(n): # O(n)
+    for _ in range(n):
         seq.append(list(map(int, input().split(' '))))
 
-    seq = sorted(seq, key = lambda x: x[1]) # O(nlog(n))
+    seq = sorted(seq, key = lambda x: x[1])
     p = list(map(int, input().split(' ')))
 
     for i, p_ in enumerate(p):
